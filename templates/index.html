@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Loan Officer</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="bg-gradient">
+    <div class="noise-overlay"></div>
+
+    <div class="shell">
+      <!-- Top Navigation / Brand -->
+      <header class="top-nav">
+        <div class="brand">
+          <div class="brand-logo">₹</div>
+          <div class="brand-text">
+            <span class="brand-name">Digital Loan Officer</span>
+            <span class="brand-subtitle">AI-powered Personal Loan Evaluation</span>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <div class="stepper">
+            <div class="step active">
+              <span class="step-dot"></span>
+              <span class="step-label">Profile</span>
+            </div>
+            <div class="step">
+              <span class="step-dot"></span>
+              <span class="step-label">Offer</span>
+            </div>
+            <div class="step">
+              <span class="step-dot"></span>
+              <span class="step-label">KYC</span>
+            </div>
+            <div class="step">
+              <span class="step-dot"></span>
+              <span class="step-label">Decision</span>
+            </div>
+          </div>
+          <button class="nav-menu-btn" onclick="returnToMenu()">Return to Menu</button>
+        </div>
+      </header>
+
+      <!-- Main Layout -->
+      <main class="layout">
+        <!-- Chat Panel -->
+        <section class="panel chat-panel glass">
+          <div class="panel-header">
+            <div class="panel-title-row">
+              <h2>Conversation</h2>
+              <span class="badge-live">● Live</span>
+            </div>
+            <p class="panel-subtitle">
+              Chat with your AI Loan Officer, fine-tune your EMI, and complete KYC.
+            </p>
+          </div>
+
+          <div id="chat-box" class="chat-box">
+            <!-- messages injected by chat.js -->
+          </div>
+
+          <div class="chat-footer">
+            <div class="input-row">
+              <div class="input-wrapper">
+                <span class="input-icon">💬</span>
+                <input
+                  type="text"
+                  id="user-input"
+                  placeholder="Type here… (e.g. 'I need 300000 loan', 'EMI too high')"
+                />
+              </div>
+              <button id="send-btn" class="btn-primary">
+                Send
+              </button>
+            </div>
+            <div class="chat-hints">
+              <span>
+                Tip: Use quick chips inside the chat like <b>OK</b>, <b>EMI too high</b> or choose a tenure.
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right Side: Snapshot & Actions -->
+        <aside class="panel side-panel glass">
+          <!-- Loan Snapshot -->
+          <section class="card">
+            <div class="card-header">
+              <h3>Loan Snapshot</h3>
+            </div>
+            <div class="snapshot-grid">
+              <div class="snapshot-item wide">
+                <span class="label">Status</span>
+                <span id="status-badge" class="status-pill status-idle">Draft</span>
+              </div>
+              <div class="snapshot-item">
+                <span class="label">Name</span>
+                <span id="snap-name" class="value">—</span>
+              </div>
+              <div class="snapshot-item">
+                <span class="label">Phone</span>
+                <span id="snap-phone" class="value">—</span>
+              </div>
+              <div class="snapshot-item">
+                <span class="label">Amount</span>
+                <span id="snap-amount" class="value">—</span>
+              </div>
+              <div class="snapshot-item">
+                <span class="label">Tenure</span>
+                <span id="snap-tenure" class="value">—</span>
+              </div>
+              <div class="snapshot-item">
+                <span class="label">EMI</span>
+                <span id="snap-emi" class="value">—</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- KYC & Salary Slip -->
+          <section class="card">
+            <div class="card-header">
+              <h3>KYC & Salary Slip</h3>
+            </div>
+            <p class="card-text">
+              After salary and PAN are shared in chat, upload your latest salary slip here to run eligibility.
+            </p>
+            <div class="upload-group">
+              <label for="salary-slip" class="file-label">
+                <span>Choose Salary Slip (PDF / Image)</span>
+              </label>
+              <input type="file" id="salary-slip" accept=".pdf,.jpg,.jpeg,.png" />
+              <button id="upload-btn" class="btn-secondary">Upload & Run Eligibility</button>
+            </div>
+          </section>
+
+          <!-- Sanction Letter -->
+          <section class="card">
+            <div class="card-header">
+              <h3>Sanction Letter</h3>
+            </div>
+            <p class="card-text">
+              Once approved, generate and download your sanction letter instantly.
+            </p>
+            <button id="download-btn" class="btn-success" disabled>
+              Download Sanction Letter
+            </button>
+          </section>
+
+          <!-- Agent Info -->
+          <section class="card agent-card">
+            <div class="card-header">
+              <h3>Agentic Workflow</h3>
+            </div>
+            <ul class="agent-list">
+              <li><strong>Master Agent</strong> — orchestrates the end-to-end journey</li>
+              <li><strong>Sales Agent</strong> — loan amount, tenure & EMI negotiation</li>
+              <li><strong>Verification Agent</strong> — salary details & KYC capture</li>
+              <li><strong>Underwriting Agent</strong> — credit rules & eligibility decision</li>
+              <li><strong>Sanction Agent</strong> — generates the sanction letter PDF</li>
+            </ul>
+          </section>
+
+          <footer class="footer">
+            <span>Powered by Python · Flask · Agentic Design · Rule-based Underwriting</span>
+          </footer>
+        </aside>
+      </main>
+    </div>
+  </div>
+
+  <script src="/static/js/chat.js"></script>
+</body>
+</html>
